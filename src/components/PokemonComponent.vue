@@ -27,7 +27,7 @@
         <span><h4><p>Weight:  {{ AppState.activePokemon.weight }}</p></h4></span>
         <span><h4><p>Height:  {{ AppState.activePokemon.height }} </p> </h4>  </span>
       </div>
-      <button class="btn btn-primary">
+      <button class="btn btn-primary" @click="pokemonsService.catchPokemon(name)">
         CatchHim
       </button>
     </div>
@@ -48,12 +48,16 @@ export default {
       AppState: computed(() => AppState),
       pokemons: computed(() => AppState.pokemons),
       activePokemon: computed(() => AppState.activePokemon),
-      async getPokemonDetails(name) {
-        await pokemonsService.getPokemonDetails(name)
+      getPokemonDetails(name) {
+        pokemonsService.getPokemonDetails(name)
+      },
+      catchPokemon(name) {
+        pokemonsService.catchPokemon(name)
       }
     }
   }
 }
+
 </script>
 <style>
 .space-around{

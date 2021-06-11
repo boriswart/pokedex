@@ -20,6 +20,10 @@ class PokemonsService {
     AppState.activePokemon = new Pokemon(res.data)
     logger.log('Pokemon in model: ', AppState.activePokemon)
   }
+
+  catchPokemon() {
+    AppState.myPokemons.push(AppState.activePokemon)
+  }
 }
 
 export const pokemonsService = new PokemonsService()
